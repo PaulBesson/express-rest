@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Personne</title>
+</head>
+<body>
+	<h1>Gestion de personne</h1>
+	<h2>Ajouter une nouvelle personne</h2>
+	<ul>
+    <% if (erreurs) { %>
+    <%  erreurs.forEach(err => { %>
+    <li>
+      <%= err %>
+    </li>
+
+    <% }) %>
+    <% } %>
+  </ul>
+	<form action="personne" method="POST">
+		<div>
+			<label for="nom">nom:</label>
+			<input type="text" id="nom" name="nom">
+		</div>
+		<div>
+			<label for="prenom">prenom:</label>
+			<input type="text" id="prenom" name="prenom">
+		</div>
+		<div>
+			<label for="age">age:</label>
+			<input type="text" id="age" name="age">
+		</div>
+		<button type="submit">Ajouter</button>
+	</form>
+	<h2>Liste des personnes</h2>
+	<ul>
+		<% for( const element of personnes) { %>
+		<li>
+			<%= `${element['nom']}, ${element['prenom']}, ${element['age']} : `%><a href="/personne/<%=element['id']%>">supprimer</a>
+		</li>
+		<%}%>
+	</ul>
+</body>
+</html>

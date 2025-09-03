@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Page d'accueil</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<h1>Page d'accueil</h1>
+	<p>Express.js + EJS</p>
+	<p>
+		Bonjour <%= nom %>
+	</p>
+	<p>
+		Bonjour <%= nomImportant %>
+	</p>
+	<p>
+		Bonjour <%- nomImportant %>
+	</p>
+	<p>
+		<%- `Bonjour ${nom} et ${nomImportant}` %>
+	</p>
+	<h2>Structures de controle</h2>
+	<h3>Structures conditionnelles</h3>
+	<% if (isConnected) { %>
+	<p>Vous etes connecte</p>
+	<% } else { %>
+	<p> Vous n'etes pas connecte</p>
+	<% } %>
+	<h3>Structures iteratives</h3>
+
+	<ul>
+		<% for (const elt of nombres) { %>
+		<li>
+			<%= `${elt} est ${parity[elt % 2]}`%>
+		</li>
+		<% } %>
+	</ul>
+
+	<ul>
+		<% for( const elt of nombres) { %>
+		<li>
+			<%= elt %>
+		</li>
+		<%}%>
+	</ul>
+
+	<ul>
+		<% for( const elt of nombres) { %>
+		<li>
+			<%= elt %>
+			<% if (elt % 2 == 0) {%>
+			pair
+			<% } else { %>
+			impair
+			<% } %>
+		</li>
+		<%}%>
+	</ul>
+
+	<ul>
+    	<% nombres.forEach(elt => { %>
+			<li>
+				<% let parity = elt % 2 == 0 ? 'pair' : 'impair' %>
+				<%= `${elt} : ${parity}` %>
+			</li>
+			<% }) %>
+	</ul>
+	<h2> Session</h2>
+	<p>
+		hello <%= firstname %>
+	</p>
+
+	<%- include ('footer.ejs', {year:2025}) %>
+</body>
+</html>
