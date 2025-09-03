@@ -9,15 +9,15 @@ import adresse from './routes/adresse.route.js'
 const app = express()
 
 // utiliser le middleware body-parser
-app.use(express.urlencoded())
+app.use(express.json())
 
 // configurer les ressources statiques
 // app.use(express.static('public'))
 
 
 // Mapping entre routes et le routeur
-app.use("/personne", personne)
-app.use("/adresse", adresse)
+app.use("/personnes", personne)
+app.use("/adresses", adresse)
 
 
 

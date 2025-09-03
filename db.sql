@@ -14,3 +14,6 @@ INSERT INTO
 VALUES (null, "Wick", "John", 45),
     (null, "Dalton", "Jack", 55),
     (null, "Maggio", "Sophie", 35);
+
+
+-- DROP DATABASE express_rest;
