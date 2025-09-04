@@ -9,7 +9,7 @@ router.get('/', PersonneController.showAll)
 router.get('/:id', PersonneController.showOne)
 router.post('/', PersonneController.add)
 router.delete('/:id', PersonneController.remove)
-// router.put('/:id', PersonneController.update)
+router.put('/:id', PersonneController.update)
 
 export default router
 
